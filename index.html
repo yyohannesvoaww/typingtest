@@ -447,37 +447,51 @@ window.addEventListener("beforeunload", (e) => {
   }
 });
 
-// Submit abandoned attempt if they close the page
-window.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden" && started && !finished && !hasSubmitted) {
-    hasSubmitted = true;
-    const r = calcResults();
-    const g = { label: "Abandoned", rec: "Applicant abandoned the test before completion." };
-    const params = new URLSearchParams();
-    const submitData = {
-      name: applicantName,
-      email: applicantEmail,
-      ip: ipAddress,
-      netWPM: r.netWPM,
-      grossWPM: r.grossWPM,
-      accuracy: r.accuracy,
-      errors: r.errors,
-      completion: r.completion,
-      grade: g.label,
-      passage: passage.title,
-      duration: DURATION,
-      elapsedSec: r.elapsedSec,
-      keystrokes: keystrokes,
-      efficiency: r.totalTyped > 0 ? Math.round((r.correctChars / keystrokes) * 100) : 0,
-      recommendation: g.rec,
-      abandoned: "Yes",
-    };
-    Object.entries(FIELD_MAP).forEach(([key, entry]) => {
-      params.append(entry, String(submitData[key] ?? ""));
-    });
-    navigator.sendBeacon(FORM_URL, params);
-  }
-});
+// Submit abandoned attempt if they close/refresh the page
+function sendAbandoned() {
+  if (!started || finished || hasSubmitted) return;
+  hasSubmitted = true;
+  const r = calcResults();
+  const submitData = {
+    name: applicantName,
+    email: applicantEmail,
+    ip: ipAddress,
+    netWPM: r.netWPM,
+    grossWPM: r.grossWPM,
+    accuracy: r.accuracy,
+    errors: r.errors,
+    completion: r.completion,
+    grade: "Abandoned",
+    passage: passage.title,
+    duration: DURATION,
+    elapsedSec: r.elapsedSec,
+    keystrokes: keystrokes,
+    efficiency: r.totalTyped > 0 ? Math.round((r.correctChars / keystrokes) * 100) : 0,
+    recommendation: "Applicant abandoned the test before completion.",
+    abandoned: "Yes",
+  };
+  const params = new URLSearchParams();
+  Object.entries(FIELD_MAP).forEach(([key, entry]) => {
+    params.append(entry, String(submitData[key] ?? ""));
+  });
+
+  // Method 1: sendBeacon with Blob
+  try {
+    const blob = new Blob([params.toString()], { type: "application/x-www-form-urlencoded" });
+    navigator.sendBeacon(FORM_URL, blob);
+  } catch(e) {}
+
+  // Method 2: sync XHR (last resort, works on page close)
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", FORM_URL, false);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(params.toString());
+  } catch(e) {}
+}
+
+window.addEventListener("pagehide", () => { sendAbandoned(); });
+window.addEventListener("beforeunload", () => { sendAbandoned(); });
 
 // Handle keyboard shortcut to focus input
 document.addEventListener("keydown", (e) => {
