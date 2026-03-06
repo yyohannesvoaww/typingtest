@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
 body{min-height:100vh;background:#0f172a;color:#e2e8f0;font-family:'IBM Plex Sans','SF Pro Text',-apple-system,sans-serif;display:flex;justify-content:center;align-items:flex-start;padding:40px 20px}
 .container{max-width:540px;width:100%;text-align:center;padding-top:40px}
-.test-container{max-width:760px;width:100%;cursor:text}
+.test-container{max-width:760px;width:100%}
 .thankyou-container{max-width:500px;width:100%;text-align:center;padding-top:80px}
 .transition-container{max-width:500px;width:100%;text-align:center;padding-top:80px}
 .icon{font-size:48px;margin-bottom:16px;filter:grayscale(1) brightness(1.5);user-select:none}
@@ -24,12 +24,11 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
 .info-lbl{color:#64748b;font-weight:600}
 .btn-primary{width:100%;margin-top:20px;padding:14px 0;border-radius:10px;border:none;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit}
 .btn-primary:disabled{opacity:0.4;cursor:not-allowed}
-.btn-secondary{display:block;width:100%;margin-top:12px;padding:12px 0;borderRadius:10px;border:1px solid #334155;background:transparent;color:#94a3b8;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;max-width:280px;margin-left:auto;margin-right:auto;border-radius:10px}
+.btn-secondary{display:block;width:100%;margin-top:12px;padding:12px 0;border-radius:10px;border:1px solid #334155;background:transparent;color:#94a3b8;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;max-width:280px;margin-left:auto;margin-right:auto}
 .warning{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:14px 16px;border-radius:10px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);font-size:13px;color:#94a3b8;line-height:1.6;text-align:left}
 .warning-icon{font-size:20px;flex-shrink:0;margin-top:-1px}
 .warning strong{color:#fbbf24}
 .fine{font-size:12px;color:#475569;margin-top:20px}
-
 .test-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .test-header-left{display:flex;flex-direction:column;gap:4px}
 .passage-label{font-size:14px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:0.04em}
@@ -38,23 +37,22 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
 .timer{font-size:32px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;font-family:'IBM Plex Mono',monospace;color:#94a3b8}
 .timer.urgent{color:#ef4444}
 .overall-progress{display:flex;gap:6px;margin-bottom:16px}
-.overall-step{flex:1;height:4px;border-radius:2px;background:#1e293b}
+.overall-step{flex:1;height:4px;border-radius:2px;background:#1e293b;transition:background 0.3s}
 .overall-step.done{background:#16a34a}
 .overall-step.active{background:linear-gradient(90deg,#1d4ed8,#60a5fa)}
 .progress-bar{width:100%;height:3px;background:#1e293b;border-radius:2px;margin-bottom:24px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#60a5fa);border-radius:2px;transition:width 0.15s;width:0%}
-.text-display{font-size:22px;line-height:1.8;letter-spacing:0.01em;padding:24px 28px;background:#1e293b;border-radius:12px;border:1px solid #334155;min-height:200px;max-height:320px;overflow-y:auto;overflow-x:hidden;font-family:'IBM Plex Mono','SF Mono',monospace;word-wrap:break-word;overflow-wrap:break-word;white-space:pre-wrap}
-.char-correct{color:#e2e8f0;font-weight:500}
-.char-incorrect{color:#fca5a5;background:rgba(239,68,68,0.15);font-weight:500}
-.char-pending{color:#64748b}
-.char-cursor{border-left:2px solid #60a5fa;padding-left:1px}
-.hidden-input{position:absolute;opacity:0;left:-9999px;top:-9999px}
+.text-display{font-size:22px;line-height:1.8;letter-spacing:0.01em;padding:24px 28px;background:#1e293b;border-radius:12px;border:1px solid #334155;min-height:200px;max-height:320px;overflow-y:auto;overflow-x:hidden;font-family:'IBM Plex Mono','SF Mono',monospace;word-wrap:break-word;overflow-wrap:break-word;white-space:pre-wrap;cursor:text}
+.ch{color:#64748b;transition:none}
+.ch.ok{color:#e2e8f0;font-weight:500}
+.ch.err{color:#fca5a5;background:rgba(239,68,68,0.15);font-weight:500}
+.ch.cur{border-left:2px solid #60a5fa;padding-left:1px}
+.hidden-input{position:absolute;opacity:0;left:-9999px;top:-9999px;width:1px;height:1px}
 .hint{text-align:center;margin-top:24px;font-size:15px;color:#475569}
 .live-info{text-align:center;margin-top:16px}
 .recording{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:#f87171;margin-bottom:6px;font-weight:500}
 .rec-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;display:inline-block}
 .pct-text{font-size:14px;color:#64748b}
-
 .check-circle{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#22c55e);display:flex;align-items:center;justify-content:center;font-size:36px;color:#fff;margin:0 auto 24px;font-weight:700}
 .arrow-circle{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#1d4ed8,#2563eb);display:flex;align-items:center;justify-content:center;font-size:36px;color:#fff;margin:0 auto 24px;font-weight:700}
 .ty-title{font-size:26px;font-weight:700;color:#f1f5f9;margin-bottom:16px}
@@ -67,7 +65,6 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
 </head>
 <body>
 
-<!-- START SCREEN -->
 <div id="startScreen" class="container">
   <div class="icon">⌨</div>
   <h1>Crisis Line Typing Assessment</h1>
@@ -91,7 +88,6 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
   <p class="fine">By proceeding, you acknowledge that your responses and connection details will be recorded for evaluation purposes.</p>
 </div>
 
-<!-- TEST SCREEN -->
 <div id="testScreen" class="test-container hidden">
   <div class="test-header">
     <div class="test-header-left">
@@ -108,7 +104,7 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
   </div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
   <div class="text-display" id="textDisplay"></div>
-  <textarea class="hidden-input" id="typingInput" spellcheck="false" autocorrect="off" autocapitalize="off"></textarea>
+  <textarea class="hidden-input" id="typingInput" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"></textarea>
   <div class="hint" id="hintText">Start typing to begin the passage...</div>
   <div class="live-info hidden" id="liveInfo">
     <div class="recording"><span class="rec-dot"></span> Attempt in progress — being recorded</div>
@@ -116,11 +112,10 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
   </div>
 </div>
 
-<!-- TRANSITION SCREEN -->
 <div id="transitionScreen" class="transition-container hidden">
   <div class="arrow-circle">→</div>
   <h1 class="ty-title" id="transTitle">Passage 1 Complete</h1>
-  <p class="ty-text" id="transText">Nice work. When you're ready, click below to begin the next passage. You'll have another 2.5 minutes.</p>
+  <p class="ty-text" id="transText">When you're ready, click below to begin the next passage. You'll have another 2.5 minutes.</p>
   <div class="ty-divider"></div>
   <div class="overall-progress" id="transProgress" style="max-width:200px;margin:0 auto 24px">
     <div class="overall-step done" id="ts0"></div>
@@ -130,7 +125,6 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
   <button class="btn-primary" id="nextBtn" style="max-width:320px;margin:0 auto">Begin Next Passage</button>
 </div>
 
-<!-- THANK YOU SCREEN -->
 <div id="thankYouScreen" class="thankyou-container hidden">
   <div class="check-circle">✓</div>
   <h1 class="ty-title">Assessment Complete</h1>
@@ -142,27 +136,14 @@ h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;color
 </div>
 
 <script>
-// ============================================
-// CONFIG
-// ============================================
 const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc_mxCDXwxGpGOTy_b7Zuq_xzzC_4BxIxNIARa_SAMELlzGZw/formResponse";
 const FIELD_MAP = {
-  name: "entry.1118223278",
-  email: "entry.1304982905",
-  ip: "entry.467116230",
-  netWPM: "entry.1352118148",
-  grossWPM: "entry.1113629335",
-  accuracy: "entry.511259471",
-  errors: "entry.1576750944",
-  completion: "entry.118451493",
-  grade: "entry.999421090",
-  passage: "entry.717580041",
-  duration: "entry.1162154227",
-  elapsedSec: "entry.1129466769",
-  keystrokes: "entry.1177283231",
-  efficiency: "entry.961436587",
-  recommendation: "entry.1578203105",
-  abandoned: "entry.825008667",
+  name: "entry.1118223278", email: "entry.1304982905", ip: "entry.467116230",
+  netWPM: "entry.1352118148", grossWPM: "entry.1113629335", accuracy: "entry.511259471",
+  errors: "entry.1576750944", completion: "entry.118451493", grade: "entry.999421090",
+  passage: "entry.717580041", duration: "entry.1162154227", elapsedSec: "entry.1129466769",
+  keystrokes: "entry.1177283231", efficiency: "entry.961436587",
+  recommendation: "entry.1578203105", abandoned: "entry.825008667",
 };
 
 const ALL_PASSAGES = [
@@ -173,67 +154,21 @@ const ALL_PASSAGES = [
 ];
 
 const DURATION = 150;
-const TOTAL_PASSAGES = 3;
+const TOTAL = 3;
 
-// ============================================
-// STATE
-// ============================================
-let applicantName = "";
-let applicantEmail = "";
-let passages = [];
-let currentPassageIndex = 0;
-let typed = "";
-let timeLeft = DURATION;
-let started = false;
-let finished = false;
-let ipAddress = "Unknown";
-let keystrokes = 0;
-let errors = 0;
-let charStates = [];
-let timerInterval = null;
-let hasSubmitted = false;
-
-// Store results per passage
+// State
+let appName = "", appEmail = "", passages = [], pIdx = 0;
+let typed = "", timeLeft = DURATION, started = false, done = false;
+let ip = "Unknown", keys = 0, errs = 0, timer = null, submitted = false;
+let spanEls = []; // Pre-rendered span elements
 let passageResults = [];
 
-// ============================================
-// ELEMENTS
-// ============================================
 const $ = id => document.getElementById(id);
-const startScreen = $("startScreen");
-const testScreen = $("testScreen");
-const transitionScreen = $("transitionScreen");
-const thankYouScreen = $("thankYouScreen");
-const nameInput = $("nameInput");
-const emailInput = $("emailInput");
-const beginBtn = $("beginBtn");
-const passageTitle = $("passageTitle");
-const passageCounter = $("passageCounter");
-const testName = $("testName");
-const timerDisplay = $("timerDisplay");
-const progressFill = $("progressFill");
-const textDisplay = $("textDisplay");
-const typingInput = $("typingInput");
-const hintText = $("hintText");
-const liveInfo = $("liveInfo");
-const pctText = $("pctText");
-const tyName = $("tyName");
-const savingText = $("savingText");
-const nextBtn = $("nextBtn");
-const transTitle = $("transTitle");
-const transText = $("transText");
 
-// ============================================
-// IP DETECTION
-// ============================================
-fetch("https://api.ipify.org?format=json")
-  .then(r => r.json())
-  .then(d => { ipAddress = d.ip; })
-  .catch(() => {});
+// IP
+fetch("https://api.ipify.org?format=json").then(r=>r.json()).then(d=>{ip=d.ip}).catch(()=>{});
 
-// ============================================
-// SUBMISSION
-// ============================================
+// Submit
 function submitToGoogle(data) {
   try {
     const id = "gf_" + Date.now();
@@ -241,24 +176,18 @@ function submitToGoogle(data) {
     iframe.name = id;
     iframe.style.cssText = "position:absolute;width:0;height:0;border:0;left:-9999px";
     document.body.appendChild(iframe);
-
     const form = document.createElement("form");
     form.method = "POST";
     form.action = FORM_URL;
     form.target = id;
     form.style.display = "none";
-
-    Object.entries(FIELD_MAP).forEach(([key, entry]) => {
+    Object.entries(FIELD_MAP).forEach(([k, e]) => {
       const inp = document.createElement("input");
-      inp.type = "hidden";
-      inp.name = entry;
-      inp.value = String(data[key] ?? "");
+      inp.type = "hidden"; inp.name = e; inp.value = String(data[k] ?? "");
       form.appendChild(inp);
     });
-
     document.body.appendChild(form);
     form.submit();
-
     setTimeout(() => {
       try { document.body.removeChild(form); } catch(e) {}
       try { document.body.removeChild(iframe); } catch(e) {}
@@ -266,11 +195,9 @@ function submitToGoogle(data) {
   } catch(e) {}
 }
 
-// ============================================
-// HELPERS
-// ============================================
-function shuffle(arr) {
-  const a = [...arr];
+// Shuffle
+function shuffle(a) {
+  a = [...a];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
@@ -278,359 +205,287 @@ function shuffle(arr) {
   return a;
 }
 
-function calcPassageResults() {
-  const passage = passages[currentPassageIndex];
-  const target = passage.text;
-  const elapsedSec = started ? DURATION - timeLeft || DURATION : 0;
-  const elapsedMin = elapsedSec / 60;
-  const correctChars = charStates.filter(s => s === "correct").length;
-  const totalTyped = typed.length;
-  const grossWPM = elapsedMin > 0 ? Math.round(totalTyped / 5 / elapsedMin) : 0;
-  const netWPM = elapsedMin > 0 ? Math.max(0, Math.round((totalTyped / 5 - errors) / elapsedMin)) : 0;
-  const accuracy = totalTyped > 0 ? Math.round((correctChars / totalTyped) * 100) : 0;
-  const completion = Math.round((totalTyped / target.length) * 100);
-  return { grossWPM, netWPM, accuracy, completion, correctChars, totalTyped, elapsedSec, errors, keystrokes, passageTitle: passage.title };
+// PERF: Pre-render spans once, then only toggle classes on keystroke
+function buildSpans() {
+  const target = passages[pIdx].text;
+  const display = $("textDisplay");
+  display.innerHTML = "";
+  spanEls = [];
+  for (let i = 0; i < target.length; i++) {
+    const sp = document.createElement("span");
+    sp.className = "ch";
+    sp.textContent = target[i];
+    display.appendChild(sp);
+    spanEls.push(sp);
+  }
 }
 
-function getGrade(netWPM, accuracy) {
-  if (netWPM >= 50 && accuracy >= 95) return { label: "Excellent", rec: "Strong candidate for chat/text crisis services." };
-  if (netWPM >= 40 && accuracy >= 90) return { label: "Good", rec: "Meets minimum requirements for crisis text/chat." };
-  if (netWPM >= 30 && accuracy >= 85) return { label: "Adequate", rec: "May benefit from additional typing practice before starting." };
+// PERF: Only update changed spans
+let prevLen = 0;
+function updateSpans() {
+  const val = typed;
+  const target = passages[pIdx].text;
+  const len = val.length;
+
+  // Determine range of spans to update: from min(prevLen, len) - 1 to max(prevLen, len) + 1
+  const lo = Math.max(0, Math.min(prevLen, len) - 1);
+  const hi = Math.min(target.length, Math.max(prevLen, len) + 1);
+
+  for (let i = lo; i < hi; i++) {
+    const sp = spanEls[i];
+    if (!sp) continue;
+    let cls = "ch";
+    if (i < len) {
+      cls = val[i] === target[i] ? "ch ok" : "ch err";
+    }
+    if (i === len) cls += " cur";
+    if (sp.className !== cls) sp.className = cls;
+  }
+
+  // Handle cursor at previous position
+  if (prevLen < target.length && prevLen !== len) {
+    const oldCur = spanEls[prevLen];
+    if (oldCur) {
+      let cls = "ch";
+      if (prevLen < len) cls = val[prevLen] === target[prevLen] ? "ch ok" : "ch err";
+      if (prevLen === len) cls += " cur";
+      if (oldCur.className !== cls) oldCur.className = cls;
+    }
+  }
+
+  prevLen = len;
+
+  // Scroll cursor into view
+  const curEl = spanEls[len];
+  if (curEl) curEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+
+function fmt(s) { return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); }
+
+function showScreen(s) {
+  ["startScreen","testScreen","transitionScreen","thankYouScreen"].forEach(id => $(id).classList.add("hidden"));
+  s.classList.remove("hidden");
+}
+
+function updateSteps(prefix) {
+  for (let i = 0; i < TOTAL; i++) {
+    const el = $(prefix + i);
+    if (!el) continue;
+    el.className = "overall-step";
+    if (i < pIdx) el.classList.add("done");
+    else if (i === pIdx) el.classList.add("active");
+  }
+}
+
+function calcPassage() {
+  const target = passages[pIdx].text;
+  const sec = started ? DURATION - timeLeft || DURATION : 0;
+  const min = sec / 60;
+  let correct = 0, errCount = 0;
+  for (let i = 0; i < target.length && i < typed.length; i++) {
+    if (typed[i] === target[i]) correct++;
+    else errCount++;
+  }
+  const t = typed.length;
+  return {
+    grossWPM: min > 0 ? Math.round(t/5/min) : 0,
+    netWPM: min > 0 ? Math.max(0, Math.round((t/5 - errCount)/min)) : 0,
+    accuracy: t > 0 ? Math.round(correct/t*100) : 0,
+    completion: Math.round(t/target.length*100),
+    correctChars: correct, totalTyped: t, elapsedSec: sec,
+    errors: errCount, keystrokes: keys,
+    passageTitle: passages[pIdx].title
+  };
+}
+
+function getGrade(net, acc) {
+  if (net >= 50 && acc >= 95) return { label: "Excellent", rec: "Strong candidate for chat/text crisis services." };
+  if (net >= 40 && acc >= 90) return { label: "Good", rec: "Meets minimum requirements for crisis text/chat." };
+  if (net >= 30 && acc >= 85) return { label: "Adequate", rec: "May benefit from additional typing practice before starting." };
   return { label: "Needs Improvement", rec: "Recommend typing practice before re-assessment." };
 }
 
-function computeFinalResults(abandoned) {
+function computeFinal(abandoned) {
   const n = passageResults.length;
   if (n === 0) {
-    return {
-      netWPM: 0, grossWPM: 0, accuracy: 0, errors: 0, completion: 0,
-      elapsedSec: 0, keystrokes: 0, efficiency: 0,
-      passageTitles: passages.map(p => p.title).join(", "),
-      grade: abandoned ? "Abandoned" : "Needs Improvement",
-      recommendation: abandoned ? "Applicant abandoned the test before completion." : "Recommend typing practice before re-assessment."
-    };
+    const g = abandoned ? "Abandoned" : "Needs Improvement";
+    const r = abandoned ? "Applicant abandoned the test before completion." : "Recommend typing practice before re-assessment.";
+    return { netWPM:0, grossWPM:0, accuracy:0, errors:0, completion:0, elapsedSec:0, keystrokes:0, efficiency:0, passageTitles: passages.map(p=>p.title).join(", "), grade: g, recommendation: r };
   }
-
-  const avgNet = Math.round(passageResults.reduce((s, r) => s + r.netWPM, 0) / n);
-  const avgGross = Math.round(passageResults.reduce((s, r) => s + r.grossWPM, 0) / n);
-  const avgAcc = Math.round(passageResults.reduce((s, r) => s + r.accuracy, 0) / n);
-  const avgComp = Math.round(passageResults.reduce((s, r) => s + r.completion, 0) / n);
-  const totalErrors = passageResults.reduce((s, r) => s + r.errors, 0);
-  const totalElapsed = passageResults.reduce((s, r) => s + r.elapsedSec, 0);
-  const totalKeystrokes = passageResults.reduce((s, r) => s + r.keystrokes, 0);
-  const totalCorrect = passageResults.reduce((s, r) => s + r.correctChars, 0);
-  const efficiency = totalKeystrokes > 0 ? Math.round((totalCorrect / totalKeystrokes) * 100) : 0;
+  const avg = (k) => Math.round(passageResults.reduce((s,r) => s + r[k], 0) / n);
+  const sum = (k) => passageResults.reduce((s,r) => s + r[k], 0);
+  const totalCorrect = sum("correctChars");
+  const totalKeys = sum("keystrokes");
   const titles = passageResults.map(r => r.passageTitle).join(", ");
-
   const g = abandoned
-    ? { label: "Abandoned", rec: "Applicant abandoned the test before completion (" + n + " of " + TOTAL_PASSAGES + " passages completed)." }
-    : getGrade(avgNet, avgAcc);
-
+    ? { label: "Abandoned", rec: "Applicant abandoned the test before completion (" + n + " of " + TOTAL + " passages completed)." }
+    : getGrade(avg("netWPM"), avg("accuracy"));
   return {
-    netWPM: avgNet, grossWPM: avgGross, accuracy: avgAcc,
-    errors: totalErrors, completion: avgComp,
-    elapsedSec: totalElapsed, keystrokes: totalKeystrokes,
-    efficiency: efficiency, passageTitles: titles,
-    grade: g.label, recommendation: g.rec
+    netWPM: avg("netWPM"), grossWPM: avg("grossWPM"), accuracy: avg("accuracy"),
+    errors: sum("errors"), completion: avg("completion"), elapsedSec: sum("elapsedSec"),
+    keystrokes: totalKeys, efficiency: totalKeys > 0 ? Math.round(totalCorrect/totalKeys*100) : 0,
+    passageTitles: titles, grade: g.label, recommendation: g.rec
   };
 }
 
 function doFinalSubmit(abandoned) {
-  if (hasSubmitted) return;
-  hasSubmitted = true;
-  savingText.classList.remove("hidden");
-
-  const r = computeFinalResults(abandoned);
-
+  if (submitted) return;
+  submitted = true;
+  $("savingText").classList.remove("hidden");
+  const r = computeFinal(abandoned);
   submitToGoogle({
-    name: applicantName,
-    email: applicantEmail,
-    ip: ipAddress,
-    netWPM: r.netWPM,
-    grossWPM: r.grossWPM,
-    accuracy: r.accuracy,
-    errors: r.errors,
-    completion: r.completion,
-    grade: r.grade,
-    passage: r.passageTitles,
-    duration: DURATION * TOTAL_PASSAGES,
-    elapsedSec: r.elapsedSec,
-    keystrokes: r.keystrokes,
-    efficiency: r.efficiency,
-    recommendation: r.recommendation,
+    name: appName, email: appEmail, ip: ip,
+    netWPM: r.netWPM, grossWPM: r.grossWPM, accuracy: r.accuracy,
+    errors: r.errors, completion: r.completion, grade: r.grade,
+    passage: r.passageTitles, duration: DURATION * TOTAL,
+    elapsedSec: r.elapsedSec, keystrokes: r.keystrokes,
+    efficiency: r.efficiency, recommendation: r.recommendation,
     abandoned: abandoned ? "Yes" : "No",
   });
-
-  setTimeout(() => { savingText.classList.add("hidden"); }, 2000);
+  setTimeout(() => { $("savingText").classList.add("hidden"); }, 2000);
 }
 
-// ============================================
-// DISPLAY
-// ============================================
-function showScreen(screen) {
-  startScreen.classList.add("hidden");
-  testScreen.classList.add("hidden");
-  transitionScreen.classList.add("hidden");
-  thankYouScreen.classList.add("hidden");
-  screen.classList.remove("hidden");
-}
-
-function renderText() {
-  const target = passages[currentPassageIndex].text;
-  let html = "";
-  for (let i = 0; i < target.length; i++) {
-    let cls = "char-pending";
-    if (i < typed.length) {
-      cls = typed[i] === target[i] ? "char-correct" : "char-incorrect";
-    }
-    if (i === typed.length) cls += " char-cursor";
-    const ch = target[i] === " " ? " " : target[i].replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    html += '<span class="' + cls + '">' + ch + '</span>';
-  }
-  textDisplay.innerHTML = html;
-  const cursorEl = textDisplay.querySelector(".char-cursor");
-  if (cursorEl) cursorEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
-}
-
-function formatTime(s) {
-  return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
-}
-
-function updateTimer() {
-  timerDisplay.textContent = formatTime(timeLeft);
-  timerDisplay.className = "timer" + (timeLeft <= 10 && started ? " urgent" : "");
-}
-
-function updateProgress() {
-  const target = passages[currentPassageIndex].text;
-  const pct = Math.min((typed.length / target.length) * 100, 100);
-  progressFill.style.width = pct + "%";
-  pctText.textContent = Math.round(pct) + "% complete";
-}
-
-function updateOverallSteps(containerId) {
-  for (let i = 0; i < TOTAL_PASSAGES; i++) {
-    const el = $(containerId + i);
-    if (!el) continue;
-    el.className = "overall-step";
-    if (i < currentPassageIndex) el.classList.add("done");
-    else if (i === currentPassageIndex) el.classList.add("active");
-  }
-}
-
-// ============================================
-// TEST LOGIC
-// ============================================
+// ---- Flow ----
 function beginAssessment() {
-  passages = shuffle(ALL_PASSAGES).slice(0, TOTAL_PASSAGES);
-  applicantName = nameInput.value.trim();
-  applicantEmail = emailInput.value.trim();
-  currentPassageIndex = 0;
+  passages = shuffle(ALL_PASSAGES).slice(0, TOTAL);
+  appName = $("nameInput").value.trim();
+  appEmail = $("emailInput").value.trim();
+  pIdx = 0;
   passageResults = [];
-  hasSubmitted = false;
+  submitted = false;
   startPassage();
 }
 
 function startPassage() {
-  const passage = passages[currentPassageIndex];
+  $("passageTitle").textContent = passages[pIdx].title;
+  $("passageCounter").textContent = "Passage " + (pIdx+1) + " of " + TOTAL;
+  $("testName").textContent = appName;
+  $("timerDisplay").textContent = fmt(DURATION);
+  $("timerDisplay").className = "timer";
+  $("progressFill").style.width = "0%";
+  $("hintText").classList.remove("hidden");
+  $("liveInfo").classList.add("hidden");
 
-  passageTitle.textContent = passage.title;
-  passageCounter.textContent = "Passage " + (currentPassageIndex + 1) + " of " + TOTAL_PASSAGES;
-  testName.textContent = applicantName;
-  timerDisplay.textContent = formatTime(DURATION);
-  timerDisplay.className = "timer";
-  progressFill.style.width = "0%";
-  hintText.classList.remove("hidden");
-  liveInfo.classList.add("hidden");
+  typed = ""; timeLeft = DURATION; started = false; done = false;
+  keys = 0; errs = 0; prevLen = 0;
+  $("typingInput").value = "";
 
-  typed = "";
-  timeLeft = DURATION;
-  started = false;
-  finished = false;
-  keystrokes = 0;
-  errors = 0;
-  charStates = [];
-  typingInput.value = "";
-
-  updateOverallSteps("step");
-  renderText();
-  showScreen(testScreen);
-  typingInput.focus();
+  updateSteps("step");
+  buildSpans();
+  showScreen($("testScreen"));
+  $("typingInput").focus();
 }
 
 function endPassage() {
-  finished = true;
-  clearInterval(timerInterval);
+  done = true;
+  clearInterval(timer);
+  passageResults.push(calcPassage());
 
-  // Save this passage's results
-  const result = calcPassageResults();
-  passageResults.push(result);
-
-  if (currentPassageIndex < TOTAL_PASSAGES - 1) {
-    // Show transition screen
-    showTransition();
+  if (pIdx < TOTAL - 1) {
+    const num = pIdx + 1;
+    $("transTitle").textContent = "Passage " + num + " Complete";
+    if (pIdx === TOTAL - 2) {
+      $("transText").textContent = "Almost there \u2014 one more passage to go. When you're ready, click below to begin the final passage. You'll have another 2.5 minutes.";
+      $("nextBtn").textContent = "Begin Final Passage";
+    } else {
+      $("transText").textContent = "When you're ready, click below to begin the next passage. You'll have another 2.5 minutes.";
+      $("nextBtn").textContent = "Begin Next Passage";
+    }
+    for (let i = 0; i < TOTAL; i++) {
+      const el = $("ts" + i);
+      if (!el) continue;
+      el.className = "overall-step";
+      if (i <= pIdx) el.classList.add("done");
+    }
+    showScreen($("transitionScreen"));
   } else {
-    // All done
-    tyName.textContent = applicantName;
-    showScreen(thankYouScreen);
+    $("tyName").textContent = appName;
+    showScreen($("thankYouScreen"));
     doFinalSubmit(false);
   }
 }
 
-function showTransition() {
-  const num = currentPassageIndex + 1;
-  transTitle.textContent = "Passage " + num + " Complete";
-
-  if (currentPassageIndex === TOTAL_PASSAGES - 2) {
-    transText.textContent = "Almost there — one more passage to go. When you're ready, click below to begin the final passage. You'll have another 2.5 minutes.";
-    nextBtn.textContent = "Begin Final Passage";
-  } else {
-    transText.textContent = "When you're ready, click below to begin the next passage. You'll have another 2.5 minutes.";
-    nextBtn.textContent = "Begin Next Passage";
-  }
-
-  // Update transition progress dots
-  for (let i = 0; i < TOTAL_PASSAGES; i++) {
-    const el = $("ts" + i);
-    if (!el) continue;
-    el.className = "overall-step";
-    if (i <= currentPassageIndex) el.classList.add("done");
-  }
-
-  showScreen(transitionScreen);
-}
-
-function goToNextPassage() {
-  currentPassageIndex++;
-  startPassage();
-}
+// ---- Typing handler (optimized) ----
+let rafPending = false;
 
 function onTyping() {
-  if (finished) return;
-  const val = typingInput.value;
-  const passage = passages[currentPassageIndex];
+  if (done) return;
+  const val = $("typingInput").value;
 
   if (!started && val.length > 0) {
     started = true;
     timeLeft = DURATION;
-    hintText.classList.add("hidden");
-    liveInfo.classList.remove("hidden");
-
-    timerInterval = setInterval(() => {
+    $("hintText").classList.add("hidden");
+    $("liveInfo").classList.remove("hidden");
+    timer = setInterval(() => {
       timeLeft--;
-      updateTimer();
-      if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        endPassage();
-      }
+      $("timerDisplay").textContent = fmt(timeLeft);
+      $("timerDisplay").className = "timer" + (timeLeft <= 10 ? " urgent" : "");
+      if (timeLeft <= 0) { clearInterval(timer); endPassage(); }
     }, 1000);
   }
 
   typed = val;
-  keystrokes++;
+  keys++;
 
-  const target = passage.text;
-  charStates = [];
-  errors = 0;
-  for (let i = 0; i < target.length; i++) {
-    if (i < val.length) {
-      if (val[i] === target[i]) charStates.push("correct");
-      else { charStates.push("incorrect"); errors++; }
-    } else charStates.push("pending");
+  // Count errors
+  const target = passages[pIdx].text;
+  errs = 0;
+  for (let i = 0; i < target.length && i < val.length; i++) {
+    if (val[i] !== target[i]) errs++;
   }
 
-  renderText();
-  updateProgress();
-
-  if (val.length >= target.length) {
-    endPassage();
+  // Batch DOM updates in requestAnimationFrame
+  if (!rafPending) {
+    rafPending = true;
+    requestAnimationFrame(() => {
+      rafPending = false;
+      updateSpans();
+      const pct = Math.min(typed.length / passages[pIdx].text.length * 100, 100);
+      $("progressFill").style.width = pct + "%";
+      $("pctText").textContent = Math.round(pct) + "% complete";
+    });
   }
+
+  if (val.length >= target.length) endPassage();
 }
 
-// ============================================
-// ABANDONED TRACKING
-// ============================================
+// ---- Abandoned tracking ----
 function sendAbandoned() {
-  if (!started || hasSubmitted) return;
-  // Save current passage results if in progress
-  if (!finished) {
-    const result = calcPassageResults();
-    passageResults.push(result);
-  }
-  hasSubmitted = true;
-
-  const r = computeFinalResults(true);
+  if (!started || submitted) return;
+  if (!done) passageResults.push(calcPassage());
+  submitted = true;
+  const r = computeFinal(true);
   const params = new URLSearchParams();
-  const submitData = {
-    name: applicantName,
-    email: applicantEmail,
-    ip: ipAddress,
-    netWPM: r.netWPM,
-    grossWPM: r.grossWPM,
-    accuracy: r.accuracy,
-    errors: r.errors,
-    completion: r.completion,
-    grade: r.grade,
-    passage: r.passageTitles,
-    duration: DURATION * TOTAL_PASSAGES,
-    elapsedSec: r.elapsedSec,
-    keystrokes: r.keystrokes,
-    efficiency: r.efficiency,
-    recommendation: r.recommendation,
+  const d = {
+    name: appName, email: appEmail, ip: ip,
+    netWPM: r.netWPM, grossWPM: r.grossWPM, accuracy: r.accuracy,
+    errors: r.errors, completion: r.completion, grade: r.grade,
+    passage: r.passageTitles, duration: DURATION * TOTAL,
+    elapsedSec: r.elapsedSec, keystrokes: r.keystrokes,
+    efficiency: r.efficiency, recommendation: r.recommendation,
     abandoned: "Yes",
   };
-  Object.entries(FIELD_MAP).forEach(([key, entry]) => {
-    params.append(entry, String(submitData[key] ?? ""));
-  });
-
-  try {
-    const blob = new Blob([params.toString()], { type: "application/x-www-form-urlencoded" });
-    navigator.sendBeacon(FORM_URL, blob);
-  } catch(e) {}
-
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", FORM_URL, false);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(params.toString());
-  } catch(e) {}
+  Object.entries(FIELD_MAP).forEach(([k, e]) => { params.append(e, String(d[k] ?? "")); });
+  try { navigator.sendBeacon(FORM_URL, new Blob([params.toString()], { type: "application/x-www-form-urlencoded" })); } catch(e) {}
+  try { var x = new XMLHttpRequest(); x.open("POST", FORM_URL, false); x.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); x.send(params.toString()); } catch(e) {}
 }
 
-window.addEventListener("pagehide", () => { sendAbandoned(); });
+window.addEventListener("pagehide", sendAbandoned);
 window.addEventListener("beforeunload", (e) => {
-  if (started && !hasSubmitted) {
-    sendAbandoned();
-    e.preventDefault();
-    e.returnValue = "";
-  }
+  if (started && !submitted) { sendAbandoned(); e.preventDefault(); e.returnValue = ""; }
 });
 
-// ============================================
-// EVENT LISTENERS
-// ============================================
-nameInput.addEventListener("input", () => {
-  beginBtn.disabled = !nameInput.value.trim();
-});
-
-beginBtn.addEventListener("click", () => {
-  if (nameInput.value.trim()) beginAssessment();
-});
-
-typingInput.addEventListener("input", onTyping);
-
-testScreen.addEventListener("click", () => {
-  typingInput.focus();
-});
-
-nextBtn.addEventListener("click", goToNextPassage);
-
+// ---- Event listeners ----
+$("nameInput").addEventListener("input", () => { $("beginBtn").disabled = !$("nameInput").value.trim(); });
+$("beginBtn").addEventListener("click", () => { if ($("nameInput").value.trim()) beginAssessment(); });
+$("typingInput").addEventListener("input", onTyping);
+$("textDisplay").addEventListener("click", () => { $("typingInput").focus(); });
+$("nextBtn").addEventListener("click", () => { pIdx++; startPassage(); });
 document.addEventListener("keydown", () => {
-  if (!testScreen.classList.contains("hidden") && document.activeElement !== typingInput) {
-    typingInput.focus();
-  }
+  if (!$("testScreen").classList.contains("hidden") && document.activeElement !== $("typingInput")) $("typingInput").focus();
 });
-
-nameInput.focus();
+$("nameInput").focus();
 </script>
 </body>
 </html>
